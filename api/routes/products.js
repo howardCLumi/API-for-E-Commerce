@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const mongoose = require("mongoose");
 const multer = require("multer");
 const checkAuth = require("../middleware/check-auth");
 const ProductsController = require("../controllers/products");
@@ -28,8 +27,6 @@ const upload = multer({
   limits: { fileSize: 1024 * 1024 * 5 },
   fileFilter: fileFilter,
 });
-
-const Product = require("../models/product");
 
 router.get("/", ProductsController.products_get_all);
 
